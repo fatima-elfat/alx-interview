@@ -29,8 +29,16 @@ def pascal_triangle(n):
         return result
     for i in range(n):
         line = []
+        """
         m = i + 1
         for j in range(m):
             line.append(binomialCoef(i, j))
+        result.append(line)
+        """
+        line.append(1)
+        for j in range(1, i):
+            line.append(result[i - 1][j - 1] + result[i - 1][j])
+        if i > 0:
+            line.append(1)
         result.append(line)
     return result

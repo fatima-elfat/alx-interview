@@ -13,13 +13,13 @@ def print_triangle(triangle):
 
 
 if __name__ == "__main__":
-    print("for 5")
-    print_triangle(pascal_triangle(5))
-    print("for 0")
-    print_triangle(pascal_triangle(0))
-    print("for 11")
-    print_triangle(pascal_triangle(11))
     print("for -1")
     print_triangle(pascal_triangle(-1))
+    print("for 0")
+    print_triangle(pascal_triangle(0))
     print("for 1")
     print_triangle(pascal_triangle(1))
+    print("for 5")
+    print_triangle(pascal_triangle(5))
+    print("for 10")
+    print_triangle(pascal_triangle(10))
