@@ -18,6 +18,7 @@ def binomialCoef(n, j):
         coef *= ((n - i) / (i + 1))
     return (int(coef))
 
+
 def pascal_triangle(n):
     """
     create a Pascal triangle.
