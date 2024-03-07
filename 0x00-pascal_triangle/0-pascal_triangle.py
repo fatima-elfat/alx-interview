@@ -12,8 +12,10 @@ def binomialCoef(n, j):
     Returns: the value of the coefficient in line n (row) in column j.
     """
     coef = 1
+    """
     if (n > n - j):
         j = n - j
+    """
     for i in range(j):
         coef *= ((n - i) / (i + 1))
     return (int(coef))
