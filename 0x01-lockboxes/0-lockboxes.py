@@ -22,7 +22,7 @@ def canUnlockAll(boxes):
     """
     start = True
     n = len(boxes)
-    new_l =  [False for i in range(n)]
+    new_l = [False for i in range(n)]
     new_l[0] = True
     old_l = new_l[:]
     while (new_l != old_l or start is True):
@@ -33,6 +33,6 @@ def canUnlockAll(boxes):
                 for j in boxes[i]:
                     try:
                         new_l[j] = True
-                    except(IndexError):
+                    except (IndexError):
                         pass
     return all(new_l)
