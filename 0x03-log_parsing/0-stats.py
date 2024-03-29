@@ -70,6 +70,11 @@ def print_statistics(input: str):
                 print("{}: {}".format(k, _stats[k]))
 
 
+def interrurupted(buf):
+    print_statistics(buf)
+    sys.exit(0)
+
+
 if __name__ == '__main__':
     max_lines = 10
     counter = min_val = 0
@@ -83,6 +88,7 @@ if __name__ == '__main__':
                 counter = min_val
                 print_statistics(buffer)
                 buffer = ""
-    except (EOFError, KeyboardInterrupt):
+            signal.signal(signal.SIGINT, interrurupted(buffer))
+    except (EOFError):
         print_statistics(buffer)
         buffer = ""
