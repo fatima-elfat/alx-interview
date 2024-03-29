@@ -55,7 +55,7 @@ def print_statistics(input: str):
         '200': 0, '301': 0, '400': 0,
         '401': 0, '403': 0, '404': 0,
         '405': 0, '500': 0}
-    if input != "":
+    if input != "" or input != "\t":
         for line in input.split("\t"):
             if line != "":
                 split_l1 = line.split("\"")
