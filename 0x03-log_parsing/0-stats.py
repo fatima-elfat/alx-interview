@@ -69,7 +69,7 @@ def print_statistics(input: str):
                     pass
         print("File size: {}".format(total_size))
         for k in _stats:
-            if _stats[k] != 0:
+            if _stats[k] > 0:
                 print("{}: {}".format(k, _stats[k]))
 
 
@@ -91,5 +91,5 @@ if __name__ == '__main__':
         buffer = ""
         raise
     except (EOFError):
-        print_statistics(buffer)
-        buffer = ""
+        pass
+    print_statistics(buffer)
