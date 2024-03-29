@@ -84,11 +84,9 @@ if __name__ == '__main__':
                 print_statistics(buffer)
                 buffer = ""
     except (KeyboardInterrupt):
-        if buffer != "":
-            print_statistics(buffer)
+        print_statistics(buffer)
         buffer = ""
         raise
     except (EOFError):
-        if buffer != "":
-            print_statistics(buffer)
+        print_statistics(buffer)
         buffer = ""
