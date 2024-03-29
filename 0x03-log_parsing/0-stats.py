@@ -67,8 +67,7 @@ def print_statistics(input: str):
                         _stats[st] += 1
                 except Exception:
                     pass
-        if total_size != 0:
-            print("File size: {}".format(total_size))
+        print("File size: {}".format(total_size))
         for k in _stats:
             if _stats[k] != 0:
                 print("{}: {}".format(k, _stats[k]))
