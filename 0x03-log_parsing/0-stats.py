@@ -55,17 +55,19 @@ def print_statistics(input: str):
         '200': 0, '301': 0, '400': 0,
         '401': 0, '403': 0, '404': 0,
         '405': 0, '500': 0}
-    for line in input.split("\t"):
-        if line != "":
-            split_l1 = line.split("\"")
-            split_l2 = split_l1[2].split()
-            total_size += int(split_l2[1])
-            st = split_l2[0]
-            _stats[st] += 1
-    print("File size: {}".format(total_size))
-    for k in _stats:
-        if _stats[k] != 0:
-            print("{}: {}".format(k, _stats[k]))
+    if input != "":
+        for line in input.split("\t"):
+            if line != "":
+                split_l1 = line.split("\"")
+                split_l2 = split_l1[2].split()
+                total_size += int(split_l2[1])
+                st = split_l2[0]
+                if st in _stats.keys():
+                    _stats[st] += 1
+        print("File size: {}".format(total_size))
+        for k in _stats:
+            if _stats[k] != 0:
+                print("{}: {}".format(k, _stats[k]))
 
 
 if __name__ == '__main__':

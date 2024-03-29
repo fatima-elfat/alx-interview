@@ -7,7 +7,7 @@ import signal
 import subprocess
 import os.path
 
-for i in range(1200):
+for i in range(120):
     sleep(random.random())
     sys.stdout.write("{:d}.{:d}.{:d}.{:d} - [{}] \"GET /projects/260 HTTP/1.1\" {} {}\n".format(
         random.randint(1, 255), random.randint(1, 255), random.randint(1, 255), random.randint(1, 255),
