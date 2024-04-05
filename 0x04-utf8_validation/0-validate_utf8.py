@@ -41,7 +41,7 @@ def validUTF8(data):
         if byte[0] == 0:
             continue
         sum_ = sum(takewhile(bool, byte)) - 1
-        if sum_ <= 0 or sum_ >= 3:
+        if sum_ <= 0 or sum_ >= 4:
             r = False
         for i in range(sum_):
             try:
