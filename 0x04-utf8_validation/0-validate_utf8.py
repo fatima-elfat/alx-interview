@@ -26,7 +26,7 @@ def generatebytes(data):
         # Yield is used in Python generators.
         # We should use yield when we want to
         # iterate over a sequence, but don’t want
-        # to store the entire sequence in memory. 
+        # to store the entire sequence in memory.
         yield r
 
 
