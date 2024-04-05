@@ -47,6 +47,7 @@ def validUTF8(data):
             r = False
         for i in range(sum_):
             try:
+                # using yield generates the next
                 byte = next(bytes)
             except Exception:
                 r = False
