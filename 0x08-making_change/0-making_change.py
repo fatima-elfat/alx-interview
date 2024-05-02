@@ -20,7 +20,7 @@ def makeChange(coins: list, total: int) -> int:
     coins.sort(reverse=True)
     for val in coins:
         while (total > 0 and total >= val):
-            r += 1
+            # r += 1
             total -= val
     if (total > 0):
         r = -1
