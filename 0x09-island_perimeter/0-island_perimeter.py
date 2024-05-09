@@ -39,12 +39,3 @@ def island_perimeter(grid: list) -> int:
             if j < lenght - 1:
                 r -= grid[i][j+1]
     return r
-if __name__ == "__main__":
-    grid = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 1, 0, 1, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ]
-    print(island_perimeter(grid))
