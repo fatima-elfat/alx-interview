@@ -10,7 +10,7 @@ connected to the water surrounding the island).
 """
 
 
-def island_perimeter(grid: list[list[int]]) -> int:
+def island_perimeter(grid):
     """checks if an island exists and returns the perimeter.
 
     Args:
