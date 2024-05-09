@@ -10,7 +10,7 @@ connected to the water surrounding the island).
 """
 
 
-def island_perimeter(grid: list) -> int:
+def island_perimeter(grid: list[list[int]]) -> int:
     """checks if an island exists and returns the perimeter.
 
     Args:
@@ -37,9 +37,4 @@ def island_perimeter(grid: list) -> int:
                     r -= grid[i+1][j]
                 if j < lenght - 1:
                     r -= grid[i][j+1]
-            if grid[i][j] == 0:
-                if i < lenght - 1 and j < lenght - 1:
-                    if grid[i+1][j] and grid[i-1][j]\
-                            and grid[i][j-1] and grid[i][j+1]:
-                        return 0
     return r
