@@ -28,14 +28,23 @@ def island_perimeter(grid: list) -> int:
     for i in range(lenght):
         for j in range(lenght):
             if grid[i][j] == 0:
-                if i < lenght - 1 and j < lenght - 1:
-                    if grid[i-1][j] and grid[i+1][j]:
-                        if grid[i][j-1] and grid[i][j+1]:
-                            return 0
-            if grid[i][j] == 1:
-                r += 4
-                if i > 0 and grid[i-1][j]:
-                    r -= 2
-                if j > 0 and grid[i][j-1]:
-                    r -= 2
+                continue
+            r += 4
+            if i > 0:
+                r -= grid[i-1][j]
+            if j > 0:
+                r -= grid[i][j-1]
+            if i < lenght - 1:
+                r -= grid[i+1][j]
+            if j < lenght - 1:
+                r -= grid[i][j+1]
     return r
+if __name__ == "__main__":
+    grid = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 1, 0, 1, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ]
+    print(island_perimeter(grid))
