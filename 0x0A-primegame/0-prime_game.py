@@ -71,26 +71,30 @@ def isWinner(x, nums):
     while (x):
         for i in nums:
             # print(x, ' round:', i)
-            gameList = list(range(1, i + 1))
-            if gameList == [1]:
-                # winner = player
+            if i == 0:
                 scores[player] += 1
-            while (gameList != [1]):
-                for j in gameList:
-                    prime = primeNum(j)
-                    if (prime != -1):
-                        for k in gameList:
-                            if k % prime == 0:
-                                gameList = set(gameList)
-                                gameList.discard(k)
-                                gameList = list(gameList)
-                        break
-                # print(player, "choose ", prime, "the remaing list", gameList)
-                if gameList == [1]:
+                player = nextPlayer(player)
+            else:
+                gameList = list(range(1, i + 1))
+                if gameList == [1] or gameList == [0]:
                     # winner = player
                     scores[player] += 1
-                # print(scores)
-                player = nextPlayer(player)
+                while (gameList != [1]):
+                    for j in gameList:
+                        prime = primeNum(j)
+                        if (prime != -1):
+                            for k in gameList:
+                                if k % prime == 0:
+                                    gameList = set(gameList)
+                                    gameList.discard(k)
+                                    gameList = list(gameList)
+                            break
+                    # print(player, "choose ", prime, "thelist", gameList)
+                    if gameList == [1] or gameList == [0]:
+                        # winner = player
+                        scores[player] += 1
+                    # print(scores)
+                    player = nextPlayer(player)
             x -= 1
     winner = 'Maria' if scores['Maria'] > scores['Ben'] else 'Ben'
     winner = None if scores['Maria'] == scores['Ben'] else 'Ben'
