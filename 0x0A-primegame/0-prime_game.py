@@ -72,8 +72,7 @@ def isWinner(x, nums):
             player = 'Maria'
             # print(x, ' round:', i, 'pleyer', player)
             if i == 0:
-                return None
-                #scores[nextPlayer(player)] += 1
+                scores[nextPlayer(player)] += 1
             else:
                 gameList = list(range(1, i + 1))
                 # print(gameList, player)
