@@ -61,24 +61,27 @@ def isWinner(x, nums):
     """
     prime = -1
     winner = ''
-    player = 'Maria'
     scores = {
         'Maria': 0,
         'Ben': 0
         }
     if x < 1 or not nums:
         return None
-    while (x):
+    while (x != 0):
         for i in nums:
-            # print(x, ' round:', i)
+            player = 'Maria'
+            # print(x, ' round:', i, 'pleyer', player)
             if i == 0:
-                scores[player] += 1
                 player = nextPlayer(player)
+                scores[player] += 1
             else:
                 gameList = list(range(1, i + 1))
-                if gameList == [1] or gameList == [0]:
-                    # winner = player
-                    scores[player] += 1
+                # print(gameList, player)
+                if gameList == [1]:
+                    # winner = pla
+                    # print(player)
+                    scores[nextPlayer(player)] += 1
+                    # player = nextPlayer(player)
                 while (gameList != [1]):
                     for j in gameList:
                         prime = primeNum(j)
@@ -89,14 +92,18 @@ def isWinner(x, nums):
                                     gameList.discard(k)
                                     gameList = list(gameList)
                             break
-                    # print(player, "choose ", prime, "thelist", gameList)
-                    if gameList == [1] or gameList == [0]:
+                    # print(player, "choose ", prime, "list  ", gameList)
+                    if gameList == [1]:
                         # winner = player
                         scores[player] += 1
                     # print(scores)
                     player = nextPlayer(player)
             x -= 1
-    winner = 'Maria' if scores['Maria'] > scores['Ben'] else 'Ben'
-    winner = None if scores['Maria'] == scores['Ben'] else 'Ben'
     # print(scores)
+    if scores['Maria'] > scores['Ben']:
+        winner = 'Maria'
+    elif scores['Maria'] == scores['Ben']:
+        winner = None
+    else:
+        winner = 'Ben'
     return winner
