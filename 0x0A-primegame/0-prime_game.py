@@ -66,10 +66,15 @@ def isWinner(x, nums):
         'Maria': 0,
         'Ben': 0
         }
+    if x < 1 or not nums:
+        return None
     while (x):
         for i in nums:
             # print(x, ' round:', i)
             gameList = list(range(1, i + 1))
+            if gameList == [1]:
+                # winner = player
+                scores[player] += 1
             while (gameList != [1]):
                 for j in gameList:
                     prime = primeNum(j)
@@ -88,5 +93,6 @@ def isWinner(x, nums):
                 player = nextPlayer(player)
             x -= 1
     winner = 'Maria' if scores['Maria'] > scores['Ben'] else 'Ben'
-    print(scores)
+    winner = None if scores['Maria'] == scores['Ben'] else 'Ben'
+    # print(scores)
     return winner
