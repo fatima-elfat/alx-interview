@@ -44,11 +44,16 @@ def isWinner(x, nums):
         }
     if x < 1 or not nums:
         return None
+    maxNum = max(nums)
+    gameList = list(range(1, maxNum + 1))
+    primeList = []
+    for i in gameList:
+        if isPrimeNbr(i):
+            primeList.append(i)
     for i in nums:
         primes = 0
-        gameList = list(range(1, i + 1))
-        for j in gameList:
-            if isPrimeNbr(j):
+        for j in primeList:
+            if j <= i:
                 primes += 1
         if primes % 2 == 0:
             scores['Ben'] += 1
